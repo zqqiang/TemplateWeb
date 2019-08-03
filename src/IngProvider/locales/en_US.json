@@ -1,0 +1,10 @@
+{
+  "sidebar.main": "main",
+  "sidebar.dashboard": "Dashboard",
+  "sidebar.dashboard.main": "Main",
+  "sidebar.network": "Network",
+  "sidebar.network.interfaces": "Interfaces",
+  "component.network.interfaces.new": "New",
+  "component.network.interfaces.tags": "Tags",
+  "component.network.interfaces.address": "Address"
+}
