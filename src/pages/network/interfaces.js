@@ -17,8 +17,7 @@ const Top = {
       id: `type`,
       className: ``,
       label: `Type`,
-      type: `text`,
-      select: true,
+      type: `simpleSelect`,
       options: [
         {
           label: `VLAN`,
@@ -30,8 +29,7 @@ const Top = {
       id: `interface`,
       className: ``,
       label: `Interface`,
-      type: `text`,
-      select: true,
+      type: `simpleSelect`,
       options: [
         {
           label: `dmz`,
@@ -50,8 +48,7 @@ const Top = {
       id: `virtualDomain`,
       className: ``,
       label: `Virtual Domain`,
-      type: `text`,
-      select: true,
+      type: `simpleSelect`,
       options: [
         {
           label: `root`,
@@ -69,8 +66,7 @@ const Tags = {
       id: `role`,
       className: ``,
       label: `Role`,
-      type: `text`,
-      select: true,
+      type: `simpleSelect`,
       options: [
         {
           label: `LAN`,
