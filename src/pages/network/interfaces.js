@@ -42,7 +42,7 @@ const Top = {
       className: ``,
       label: `VLAN ID`,
       type: `text`,
-      default: 0
+      defaultValue: 0
     },
     {
       id: `virtualDomain`,
@@ -85,7 +85,6 @@ const Address = {
       className: `d-flex flex-row`,
       label: `Addressing mode`,
       type: `radiosGroup`,
-      defaultValue: `manual`,
       options: [
         {
           label: `Manual`,

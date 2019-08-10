@@ -16,7 +16,6 @@ class RadioButtonsGroup extends Component {
             aria-label={this.props.id}
             name={this.props.id}
             value={this.props.value}
-            defaultValue={this.props.defaultValue}
             onChange={this.props.onChange}
           >
             {this.props.options &&

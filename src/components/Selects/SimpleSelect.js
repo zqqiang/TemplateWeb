@@ -6,9 +6,12 @@ import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 
 class SimpleSelect extends React.Component {
-  state = {
-    value: ""
-  };
+  constructor(props) {
+    super(props);
+    this.state = { value: props.options[0].value };
+
+    this.handleChange = this.handleChange.bind(this);
+  }
 
   handleChange = name => event => {
     this.setState({ [name]: event.target.value });

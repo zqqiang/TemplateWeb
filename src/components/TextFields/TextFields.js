@@ -2,6 +2,17 @@ import React from "react";
 import TextField from "@material-ui/core/TextField";
 
 class TextFields extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { value: props.defaultValue };
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({ value: event.target.value });
+  }
+
   render() {
     const props = this.props;
 
@@ -11,9 +22,8 @@ class TextFields extends React.Component {
           id={props.id}
           label={props.label}
           placeholder={props.placeholder}
-          defaultValue={props.defaultValue}
-          // value={props.state.value}
-          // onChange={props.handleChange}
+          value={this.state.value}
+          onChange={this.handleChange}
           helperText={props.help}
           margin="normal"
           fullWidth
