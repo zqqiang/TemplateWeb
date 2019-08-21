@@ -6,17 +6,6 @@ import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 
 class SimpleSelect extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { value: props.options[0].value };
-
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange = name => event => {
-    this.setState({ [name]: event.target.value });
-  };
-
   render() {
     const props = this.props;
     return (
@@ -24,9 +13,9 @@ class SimpleSelect extends React.Component {
         <FormControl className="w-100 mb-2">
           <InputLabel htmlFor="">{props.label}</InputLabel>
           <Select
-            value={this.state.value}
-            onChange={this.handleChange("value")}
-            input={<Input id={props.id} />}
+            value={props.value ? props.value : props.options[0].value}
+            onChange={props.onChange}
+            input={<Input id={props.id} name={props.id} />}
           >
             {props.options &&
               props.options.map(option => (

@@ -10,11 +10,18 @@ class Interfaces extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
+
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange = e => {
     switch (e.target.type) {
+      case "text":
+        this.setState({ [e.target.id]: e.target.value });
+        break;
       case "radio":
+      case "radioGroup":
+      case "simpleSelect":
         this.setState({ [e.target.name]: e.target.value });
         break;
       case "checkbox":

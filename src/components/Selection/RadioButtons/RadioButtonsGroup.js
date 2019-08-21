@@ -7,19 +7,20 @@ import FormLabel from "@material-ui/core/FormLabel";
 
 class RadioButtonsGroup extends Component {
   render() {
+    const props = this.props;
     return (
       <div className="col-sm-4">
         <FormControl component="fieldset" required>
-          <FormLabel component="legend">{this.props.label}</FormLabel>
+          <FormLabel component="legend">{props.label}</FormLabel>
           <RadioGroup
-            className={this.props.className}
-            aria-label={this.props.id}
-            name={this.props.id}
-            value={this.props.value}
-            onChange={this.props.onChange}
+            className={props.className}
+            aria-label={props.id}
+            name={props.id}
+            value={props.value}
+            onChange={props.onChange}
           >
-            {this.props.options &&
-              this.props.options.map(option => (
+            {props.options &&
+              props.options.map(option => (
                 <FormControlLabel
                   key={option.label}
                   value={option.value}
