@@ -12,6 +12,7 @@ class Interfaces extends React.Component {
     this.state = {};
 
     this.handleChange = this.handleChange.bind(this);
+    this.getValue = this.getValue.bind(this);
   }
 
   handleChange = e => {
@@ -20,7 +21,7 @@ class Interfaces extends React.Component {
         this.setState({ [e.target.id]: e.target.value });
         break;
       case "radio":
-      case "radioGroup":
+      case "radiosGroup":
       case "simpleSelect":
         this.setState({ [e.target.name]: e.target.value });
         break;
@@ -29,6 +30,20 @@ class Interfaces extends React.Component {
         break;
       default:
         console.log("unsupport editor type:", e.target.type);
+        break;
+    }
+  };
+
+  getValue = editor => {
+    switch (editor.type) {
+      case "text":
+      case "checkbox":
+      case "radio":
+      case "radiosGroup":
+      case "simpleSelect":
+        return this.state[editor.id];
+      default:
+        console.log("unsupport editor type:", editor.type);
         break;
     }
   };
@@ -63,7 +78,7 @@ class Interfaces extends React.Component {
                               defaultValue={editor.defaultValue}
                               options={editor.options}
                               onChange={this.handleChange}
-                              value={this.state.value}
+                              value={this.getValue(editor)}
                             />
                           </div>
                         );

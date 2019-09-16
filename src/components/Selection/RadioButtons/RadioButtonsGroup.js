@@ -16,7 +16,7 @@ class RadioButtonsGroup extends Component {
             className={props.className}
             aria-label={props.id}
             name={props.id}
-            value={props.value}
+            value={props.value ? props.value : props.options[0].value}
             onChange={props.onChange}
           >
             {props.options &&
