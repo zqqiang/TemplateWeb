@@ -153,19 +153,20 @@ const AdministrativeAccess = {
       label: `IPv4`,
       type: `checkboxes`,
       options: [
-        {
-          label: `HTTPS`,
-          value: `https`
-        },
-        {
-          label: `HTTP`,
-          value: `http`
-        }
+        `HTTPS`,
+        `HTTP`,
+        `PING`,
+        `FMG-Access`,
+        `CAPWAP`,
+        `SSH`,
+        `SNMP`,
+        `FTM`,
+        `RADIUS Accounting`
       ]
     }
   ]
 };
 
 export default {
-  cards: [Top, Tags, Address]
+  cards: [Top, Tags, Address, AdministrativeAccess]
 };

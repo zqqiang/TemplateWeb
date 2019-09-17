@@ -6,5 +6,6 @@
   "sidebar.network.interfaces": "Interfaces",
   "component.network.interfaces.new": "New",
   "component.network.interfaces.tags": "Tags",
-  "component.network.interfaces.address": "Address"
+  "component.network.interfaces.address": "Address",
+  "component.network.interface.administrative.access": "Administrative Access"
 }

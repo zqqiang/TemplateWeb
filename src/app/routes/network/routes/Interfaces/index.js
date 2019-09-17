@@ -29,7 +29,7 @@ class Interfaces extends React.Component {
         this.setState({ [e.target.id]: e.target.checked });
         break;
       default:
-        console.log("unsupport editor type:", e.target.type);
+        console.log("unsupport editor:", e.target);
         break;
     }
   };
@@ -42,6 +42,7 @@ class Interfaces extends React.Component {
       case "radiosGroup":
       case "simpleSelect":
       case "switch":
+      case "checkboxes":
         return this.state[editor.id];
       default:
         console.log("unsupport editor type:", editor.type);
