@@ -118,6 +118,7 @@ const Address = {
       condition: parent => parent[`addressingMode`] === `pppoe`
     },
     {
+      version: { start: `6.2.0` },
       id: `matchSubnet`,
       className: ``,
       label: `Create address object matching subnet`,
