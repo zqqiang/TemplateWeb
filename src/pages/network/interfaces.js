@@ -144,6 +144,28 @@ const Address = {
   ]
 };
 
+const AdministrativeAccess = {
+  tag: "component.network.interface.administrative.access",
+  editors: [
+    {
+      id: `ipv4`,
+      className: ``,
+      label: `IPv4`,
+      type: `checkboxes`,
+      options: [
+        {
+          label: `HTTPS`,
+          value: `https`
+        },
+        {
+          label: `HTTP`,
+          value: `http`
+        }
+      ]
+    }
+  ]
+};
+
 export default {
   cards: [Top, Tags, Address]
 };
