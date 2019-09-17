@@ -41,6 +41,7 @@ class Interfaces extends React.Component {
       case "radio":
       case "radiosGroup":
       case "simpleSelect":
+      case "switch":
         return this.state[editor.id];
       default:
         console.log("unsupport editor type:", editor.type);

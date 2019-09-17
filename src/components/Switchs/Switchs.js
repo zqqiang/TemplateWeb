@@ -4,21 +4,22 @@ import Switch from "@material-ui/core/Switch";
 
 class Switchs extends React.Component {
   render() {
+    const props = this.props;
     return (
       <div className="col-md-3 col-12">
         <FormControlLabel
           control={
             <Switch
               color="primary"
-              id={this.props.id}
+              id={props.id}
               classes={{
                 checked: "text-primary"
               }}
-              checked={this.props.value}
-              onChange={this.props.onChange}
+              value={props.value}
+              onChange={props.onChange}
             />
           }
-          label={this.props.label}
+          label={props.label}
         />
       </div>
     );

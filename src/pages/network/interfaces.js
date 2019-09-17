@@ -106,7 +106,9 @@ const Address = {
       label: `IP/Network Mask`,
       type: `text`,
       defaultValue: `0.0.0.0/0.0.0.0`,
-      condition: parent => parent[`addressingMode`] === `manual`
+      condition: parent =>
+        parent[`addressingMode`] === `manual` ||
+        parent[`addressingMode`] === undefined
     },
     {
       id: `username`,
@@ -122,6 +124,7 @@ const Address = {
       type: `switch`,
       condition: parent =>
         parent[`addressingMode`] === `manual` ||
+        parent[`addressingMode`] === undefined ||
         parent[`addressingMode`] === `dhcp`
     },
     {
