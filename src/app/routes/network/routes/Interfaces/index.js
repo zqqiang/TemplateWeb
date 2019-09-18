@@ -29,7 +29,11 @@ class Interfaces extends React.Component {
         this.setState({ [e.target.id]: e.target.checked });
         break;
       default:
-        console.log("unsupport editor:", e.target);
+        if (e.target.name && e.target.value) {
+          this.setState({ [e.target.name]: e.target.value });
+        } else {
+          console.log("unsupport editor:", e.target);
+        }
         break;
     }
   };

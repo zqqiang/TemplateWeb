@@ -4,16 +4,25 @@ import { AppBar, Toolbar } from "@material-ui/core";
 import { Dropdown, DropdownMenu, DropdownToggle } from "reactstrap";
 
 class Header extends React.Component {
-  Apps = versions => {
+  constructor() {
+    super();
+    this.state = {};
+  }
+  onAppsSelect = () => {
+    this.setState({
+      apps: !this.state.apps
+    });
+  };
+  Apps = apps => {
     return (
       <ul className="jr-list jr-list-half">
-        {versions &&
-          versions.map(version => (
-            <li key={version} className="jr-list-item">
+        {apps &&
+          apps.map(app => (
+            <li key={app} className="jr-list-item">
               <Link className="jr-list-link" to="/app/calendar/basic">
                 <i className="zmdi zmdi-calendar zmdi-hc-fw" />
                 <span className="jr-list-text">
-                  <span>{version}</span>
+                  <span>{app}</span>
                 </span>
               </Link>
             </li>
@@ -34,7 +43,11 @@ class Header extends React.Component {
           </Link>
           <ul className="header-notifications list-inline ml-auto">
             <li className="list-inline-item">
-              <Dropdown className="quick-menu app-notification" isOpen={true}>
+              <Dropdown
+                className="quick-menu app-notification"
+                isOpen={this.state.apps}
+                toggle={this.onAppsSelect.bind(this)}
+              >
                 <DropdownToggle
                   className="d-inline-block"
                   tag="span"
@@ -45,7 +58,7 @@ class Header extends React.Component {
                     <span>Apps</span>
                   </span>
                 </DropdownToggle>
-                <DropdownMenu>{this.Apps([`6.2.0`, `6.1.0`])}</DropdownMenu>
+                <DropdownMenu>{this.Apps([`App`])}</DropdownMenu>
               </Dropdown>
             </li>
           </ul>

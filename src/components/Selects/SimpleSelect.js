@@ -13,16 +13,26 @@ class SimpleSelect extends React.Component {
         <FormControl className="w-100 mb-2">
           <InputLabel htmlFor="">{props.label}</InputLabel>
           <Select
-            value={props.value ? props.value : props.options[0].value}
+            value={
+              props.value
+                ? props.value
+                : props.options[0].value
+                ? props.options[0].value
+                : props.options[0]
+            }
             onChange={props.onChange}
             input={<Input id={props.id} name={props.id} />}
           >
             {props.options &&
-              props.options.map(option => (
-                <MenuItem key={option.value} value={option.value}>
-                  {option.label}
-                </MenuItem>
-              ))}
+              props.options.map(option => {
+                let value = option.value ? option.value : option;
+                let label = option.label ? option.label : option;
+                return (
+                  <MenuItem key={value} value={value}>
+                    {label}
+                  </MenuItem>
+                );
+              })}
           </Select>
         </FormControl>
       </div>

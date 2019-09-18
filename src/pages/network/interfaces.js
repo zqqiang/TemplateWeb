@@ -1,3 +1,15 @@
+const Version = {
+  tag: "component.network.interfaces.version",
+  editors: [
+    {
+      id: `version`,
+      label: `Version`,
+      type: `simpleSelect`,
+      options: [`6.2.0`, `6.1.0`]
+    }
+  ]
+};
+
 const Top = {
   tag: "component.network.interfaces.new",
   editors: [
@@ -169,5 +181,5 @@ const AdministrativeAccess = {
 };
 
 export default {
-  cards: [Top, Tags, Address, AdministrativeAccess]
+  cards: [Version, Top, Tags, Address, AdministrativeAccess]
 };
