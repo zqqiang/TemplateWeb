@@ -12,7 +12,7 @@ class UserInfo extends React.Component {
         />
         <div className="user-detail">
           <h4 className="user-name" onClick={this.handleClick}>
-            Super Admin
+            <strong>Config Server</strong>
           </h4>
         </div>
       </div>

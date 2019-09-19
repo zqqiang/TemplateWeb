@@ -35,11 +35,11 @@ class Header extends React.Component {
       <AppBar className="app-main-header">
         <Toolbar className="app-toolbar">
           <Link className="app-logo mr-2 d-none d-sm-block" to="/">
-            <img
+            {/* <img
               src={require(`../../assets/images/logo.png`)}
               alt="Jambo"
               title="Jambo"
-            />
+            /> */}
           </Link>
           <ul className="header-notifications list-inline ml-auto">
             <li className="list-inline-item">
