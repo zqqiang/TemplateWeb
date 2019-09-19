@@ -9,7 +9,7 @@ import IntfSyntax from "pages/network/interfaces";
 class Interfaces extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = { version: `6.1.0` };
 
     this.handleChange = this.handleChange.bind(this);
     this.getValue = this.getValue.bind(this);
@@ -54,6 +54,14 @@ class Interfaces extends React.Component {
     }
   };
 
+  version = v => {
+    return !v || v.start <= this.state.version;
+  };
+
+  condition = c => {
+    return !c || c(this.state);
+  };
+
   render() {
     return (
       <div className="animated slideInUpTiny animation-duration-3">
@@ -69,8 +77,8 @@ class Interfaces extends React.Component {
                     {card.editors.map(editor => {
                       const CustomTag = EditorTag(editor.type);
                       if (
-                        !editor.condition ||
-                        (editor.condition && editor.condition(this.state))
+                        this.version(editor.version) &&
+                        this.condition(editor.condition)
                       ) {
                         return (
                           <div className="col-12" key={editor.id}>
