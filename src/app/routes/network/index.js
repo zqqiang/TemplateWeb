@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 
-import Interfaces from "./routes/Interfaces/index";
+import Interfaces from "./routes/Interfaces";
 
 const Dashboard = ({ match }) => {
   return (
