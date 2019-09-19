@@ -47,7 +47,7 @@ class Interfaces extends React.Component {
       case "simpleSelect":
       case "switch":
       case "checkboxes":
-        return this.state[editor.id];
+        return this.state[editor.id] || ``;
       default:
         console.log("unsupport editor type:", editor.type);
         break;
