@@ -13,7 +13,8 @@ import {
   DropdownToggle
 } from "reactstrap";
 import Button from "@material-ui/core/Button";
-import { NavLink } from "react-router-dom";
+import Avatar from "@material-ui/core/Avatar";
+import { Redirect } from "react-router-dom";
 import IntlMessages from "util/IntlMessages";
 
 function createData(
@@ -67,7 +68,8 @@ class List extends React.Component {
   constructor() {
     super();
     this.state = {
-      dropDownOpen: false
+      dropDownOpen: false,
+      toEdit: false
     };
   }
 
@@ -77,7 +79,17 @@ class List extends React.Component {
     });
   };
 
+  handleClick = () => {
+    this.setState({
+      toEdit: true
+    });
+  };
+
   render() {
+    if (this.state.toEdit === true) {
+      return <Redirect to="/app/network/interfaces/edit" />;
+    }
+
     return (
       <div className="animated slideInUpTiny animation-duration-3">
         <div className="row mb-md-3">
@@ -88,28 +100,28 @@ class List extends React.Component {
                 toggle={this.toggle}
               >
                 <DropdownToggle
-                  className="jr-btn border-0 no-shadow bg-secondary text-white"
+                  className="jr-btn border-0 no-shadow bg-white text-black"
                   caret
                 >
-                  Create New
+                  <i className="zmdi zmdi-plus zmdi-hc-fw" />
+                  <span>Create New</span>
                 </DropdownToggle>
                 <DropdownMenu>
-                  <DropdownItem>
-                    <NavLink
-                      className="prepend-icon"
-                      to="/app/network/interfaces/edit"
-                    >
-                      <span className="nav-text">
-                        <IntlMessages id="app.network.interfaces.list.interface" />
-                      </span>
-                    </NavLink>
+                  <DropdownItem onClick={this.handleClick}>
+                    <IntlMessages id="app.network.interfaces.list.interface" />
                   </DropdownItem>
                   <DropdownItem>Virtual Wire Pair</DropdownItem>
                   <DropdownItem>VDOM Link</DropdownItem>
                 </DropdownMenu>
               </ButtonDropdown>
-              <Button className="jr-btn bg-secondary text-white">Edit</Button>
-              <Button className="jr-btn bg-secondary text-white">Delete</Button>
+              <Button className="jr-btn bg-white text-black">
+                <i className="zmdi zmdi-edit zmdi-hc-fw" />
+                <span>Edit</span>
+              </Button>
+              <Button className="jr-btn bg-white text-black">
+                <i className="zmdi zmdi-delete zmdi-hc-fw" />
+                <span>Delete</span>
+              </Button>
             </ButtonGroup>
             <div className="table-responsive-material">
               <Table>
@@ -130,7 +142,17 @@ class List extends React.Component {
                   {data.map((d, index) => {
                     return (
                       <TableRow key={index}>
-                        <TableCell>{d.status}</TableCell>
+                        <TableCell>
+                          {d.status === "up" ? (
+                            <Avatar className="bg-success size-20">
+                              <i className="zmdi zmdi-long-arrow-up text-white" />
+                            </Avatar>
+                          ) : (
+                            <Avatar className="bg-danger size-20">
+                              <i className="zmdi zmdi-long-arrow-down text-white" />
+                            </Avatar>
+                          )}
+                        </TableCell>
                         <TableCell align="left">{d.name}</TableCell>
                         <TableCell align="left">{d.members}</TableCell>
                         <TableCell align="left">{d.ipNetMask}</TableCell>
