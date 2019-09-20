@@ -8,5 +8,6 @@
   "component.network.interfaces.new": "New",
   "component.network.interfaces.tags": "Tags",
   "component.network.interfaces.address": "Address",
-  "component.network.interface.administrative.access": "Administrative Access"
+  "component.network.interface.administrative.access": "Administrative Access",
+  "app.network.interfaces.list.interface": "Interface"
 }
