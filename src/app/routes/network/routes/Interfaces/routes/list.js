@@ -1,6 +1,6 @@
 import React from "react";
 
-class InterfacesList extends React.Component {
+class List extends React.Component {
   render() {
     return (
       <div className="animated slideInUpTiny animation-duration-3">
@@ -10,4 +10,4 @@ class InterfacesList extends React.Component {
   }
 }
 
-export default InterfacesList;
+export default List;

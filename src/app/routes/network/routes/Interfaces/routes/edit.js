@@ -6,7 +6,7 @@ import IntlMessages from "util/IntlMessages";
 import EditorTag from "components/EditorTag/index";
 import IntfSyntax from "pages/network/interfaces";
 
-class InterfacesEdit extends React.Component {
+class Edit extends React.Component {
   constructor(props) {
     super(props);
     this.state = { version: `6.1.0` };
@@ -110,4 +110,4 @@ class InterfacesEdit extends React.Component {
   }
 }
 
-export default InterfacesEdit;
+export default Edit;

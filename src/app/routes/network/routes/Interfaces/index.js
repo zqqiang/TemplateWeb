@@ -1,13 +1,16 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 
-import List from "./routes/Interfaces/routes/list";
+import List from "./routes/list";
+import Edit from "./routes/edit";
 
 const Interfaces = ({ match }) => {
   return (
     <div className="app-wrapper">
       <Switch>
+        <Redirect exact from={`${match.url}/`} to={`${match.url}/list`} />
         <Route path={`${match.url}/list`} component={List} />
+        <Route path={`${match.url}/edit`} component={Edit} />
       </Switch>
     </div>
   );
