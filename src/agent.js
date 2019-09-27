@@ -5,7 +5,7 @@ const superagent = superagentPromise(_superagent, global.Promise);
 
 const API_ROOT = "";
 
-const encode = encodeURIComponent;
+// const encode = encodeURIComponent;
 const responseBody = res => res.body;
 
 let token = null;

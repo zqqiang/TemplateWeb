@@ -16,6 +16,9 @@ import Button from "@material-ui/core/Button";
 import Avatar from "@material-ui/core/Avatar";
 import { Redirect } from "react-router-dom";
 import IntlMessages from "util/IntlMessages";
+import { INTERFACE_PAGE_LOADED } from "constants/actionTypes";
+import agent from "agent";
+import { connect } from "react-redux";
 
 function createData(
   status,
@@ -64,6 +67,11 @@ const data = [
   )
 ];
 
+const mapStateToProps = state => ({});
+const mapDispatchToProps = dispatch => ({
+  onLoad: () => dispatch({ type: INTERFACE_PAGE_LOADED })
+});
+
 class List extends React.Component {
   constructor() {
     super();
@@ -71,6 +79,10 @@ class List extends React.Component {
       dropDownOpen: false,
       toEdit: false
     };
+  }
+
+  componentWillMount() {
+    this.props.onLoad(Promise.all(agent.Interfaces.all()));
   }
 
   toggle = () => {
@@ -173,4 +185,7 @@ class List extends React.Component {
   }
 }
 
-export default List;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(List);

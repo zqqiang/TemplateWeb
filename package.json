@@ -14,7 +14,9 @@
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
     "reactstrap": "^8.0.1",
-    "redux": "^4.0.1"
+    "redux": "^4.0.1",
+    "superagent": "^5.1.0",
+    "superagent-promise": "^1.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
