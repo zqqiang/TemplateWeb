@@ -37,3 +37,16 @@ const requests = {
       .use(tokenPlugin)
       .then(responseBody)
 };
+
+const limit = (count, p) => `limit=${count}&offset=${p ? p * count : 0}`;
+
+const Interfaces = {
+  all: page => requests.get(`/interfaces?${limit(10, page)}`)
+};
+
+export default {
+  Interfaces,
+  setToken: _token => {
+    token = _token;
+  }
+};
