@@ -2907,7 +2907,7 @@ connect-pause@^0.1.1:
   resolved "https://registry.yarnpkg.com/connect-pause/-/connect-pause-0.1.1.tgz#b269b2bb82ddb1ac3db5099c0fb582aba99fb37a"
   integrity sha1-smmyu4Ldsaw9tQmcD7WCq6mfs3o=
 
-connected-react-router@^6.4.0:
+connected-react-router@^6.5.2:
   version "6.5.2"
   resolved "https://registry.yarnpkg.com/connected-react-router/-/connected-react-router-6.5.2.tgz#422af70f86cb276681e20ab4295cf27dd9b6c7e3"
   integrity sha512-qzsLPZCofSI80fwy+HgxtEgSGS4ndYUUZAWaw1dqaOGPLKX/FVwIOEb7q+hjHdnZ4v5pKZcNv5GG4urjujIoyA==

@@ -1,24 +1,24 @@
 {
   "interfaces": [
     {
-      "Status": "",
-      "Name": "internal",
-      "Members": "",
-      "IP/Netmask": "0.0.0.0 0.0.0.0",
-      "Type": "Hardware Switch",
-      "Access": "PING HTTPS SSH HTTP",
-      "Virtual Domain": "root",
-      "Ref.": "0"
+      "status": "",
+      "name": "internal",
+      "members": "",
+      "ipNetmask": "0.0.0.0 0.0.0.0",
+      "type": "Hardware Switch",
+      "access": "PING HTTPS SSH HTTP",
+      "virtualDomain": "root",
+      "ref": "0"
     },
     {
-      "Status": "up",
-      "Name": "wan1",
-      "Members": "",
-      "IP/Netmask": "0.0.0.0 0.0.0.0",
-      "Type": "Hardware Switch",
-      "Access": "PING HTTPS SSH HTTP Telnet",
-      "Virtual Domain": "root",
-      "Ref.": "0"
+      "status": "up",
+      "name": "wan1",
+      "members": "",
+      "ipNetmask": "0.0.0.0 0.0.0.0",
+      "type": "Hardware Switch",
+      "access": "PING HTTPS SSH HTTP Telnet",
+      "virtualDomain": "root",
+      "ref": "0"
     }
   ]
 }

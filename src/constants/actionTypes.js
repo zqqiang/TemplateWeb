@@ -1,1 +1,3 @@
 export const INTERFACE_PAGE_LOADED = `INTERFACE_PAGE_LOADED`;
+export const ASYNC_START = "ASYNC_START";
+export const ASYNC_END = "ASYNC_END";

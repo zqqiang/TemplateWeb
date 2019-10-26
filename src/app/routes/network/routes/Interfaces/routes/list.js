@@ -20,18 +20,18 @@ import { INTERFACE_PAGE_LOADED } from "constants/actionTypes";
 import agent from "agent";
 import { connect } from "react-redux";
 
-function createData(
-  status,
-  name,
-  members,
-  ipNetMask,
-  type,
-  access,
-  virtualDomain,
-  ref
-) {
-  return { status, name, members, ipNetMask, type, access, virtualDomain, ref };
-}
+// function createData(
+//   status,
+//   name,
+//   members,
+//   ipNetMask,
+//   type,
+//   access,
+//   virtualDomain,
+//   ref
+// ) {
+//   return { status, name, members, ipNetMask, type, access, virtualDomain, ref };
+// }
 
 const columns = [
   `Status`,
@@ -44,32 +44,32 @@ const columns = [
   `Ref.`
 ];
 
-const data = [
-  createData(
-    undefined,
-    `internal`,
-    undefined,
-    `0.0.0.0 0.0.0.0`,
-    `Hardware Switch`,
-    `PING HTTPS SSH HTTP`,
-    `root`,
-    `0`
-  ),
-  createData(
-    `up`,
-    `wan1`,
-    undefined,
-    `0.0.0.0 0.0.0.0`,
-    `Physical Interface`,
-    `PING HTTPS SSH HTTP Telnet`,
-    `root`,
-    `0`
-  )
-];
+// const data = [
+//   createData(
+//     undefined,
+//     `internal`,
+//     undefined,
+//     `0.0.0.0 0.0.0.0`,
+//     `Hardware Switch`,
+//     `PING HTTPS SSH HTTP`,
+//     `root`,
+//     `0`
+//   ),
+//   createData(
+//     `up`,
+//     `wan1`,
+//     undefined,
+//     `0.0.0.0 0.0.0.0`,
+//     `Physical Interface`,
+//     `PING HTTPS SSH HTTP Telnet`,
+//     `root`,
+//     `0`
+//   )
+// ];
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({ ...state });
 const mapDispatchToProps = dispatch => ({
-  onLoad: () => dispatch({ type: INTERFACE_PAGE_LOADED })
+  onLoad: payload => dispatch({ type: INTERFACE_PAGE_LOADED, payload })
 });
 
 class List extends React.Component {
@@ -82,7 +82,7 @@ class List extends React.Component {
   }
 
   componentWillMount() {
-    this.props.onLoad(Promise.all(agent.Interfaces.all()));
+    this.props.onLoad(agent.Interfaces.all());
   }
 
   toggle = () => {
@@ -101,6 +101,8 @@ class List extends React.Component {
     if (this.state.toEdit === true) {
       return <Redirect to="/app/network/interfaces/edit" />;
     }
+
+    let interfaces = this.props.interfaceList.interfaces;
 
     return (
       <div className="animated slideInUpTiny animation-duration-3">
@@ -151,30 +153,31 @@ class List extends React.Component {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {data.map((d, index) => {
-                    return (
-                      <TableRow key={index}>
-                        <TableCell>
-                          {d.status === "up" ? (
-                            <Avatar className="bg-success size-20">
-                              <i className="zmdi zmdi-long-arrow-up text-white" />
-                            </Avatar>
-                          ) : (
-                            <Avatar className="bg-danger size-20">
-                              <i className="zmdi zmdi-long-arrow-down text-white" />
-                            </Avatar>
-                          )}
-                        </TableCell>
-                        <TableCell align="left">{d.name}</TableCell>
-                        <TableCell align="left">{d.members}</TableCell>
-                        <TableCell align="left">{d.ipNetMask}</TableCell>
-                        <TableCell align="left">{d.type}</TableCell>
-                        <TableCell align="left">{d.access}</TableCell>
-                        <TableCell align="left">{d.virtualDomain}</TableCell>
-                        <TableCell align="left">{d.ref}</TableCell>
-                      </TableRow>
-                    );
-                  })}
+                  {interfaces &&
+                    interfaces.map((d, index) => {
+                      return (
+                        <TableRow key={index}>
+                          <TableCell>
+                            {d.status === "up" ? (
+                              <Avatar className="bg-success size-20">
+                                <i className="zmdi zmdi-long-arrow-up text-white" />
+                              </Avatar>
+                            ) : (
+                              <Avatar className="bg-danger size-20">
+                                <i className="zmdi zmdi-long-arrow-down text-white" />
+                              </Avatar>
+                            )}
+                          </TableCell>
+                          <TableCell align="left">{d.name}</TableCell>
+                          <TableCell align="left">{d.members}</TableCell>
+                          <TableCell align="left">{d.ipNetMask}</TableCell>
+                          <TableCell align="left">{d.type}</TableCell>
+                          <TableCell align="left">{d.access}</TableCell>
+                          <TableCell align="left">{d.virtualDomain}</TableCell>
+                          <TableCell align="left">{d.ref}</TableCell>
+                        </TableRow>
+                      );
+                    })}
                 </TableBody>
               </Table>
             </div>
