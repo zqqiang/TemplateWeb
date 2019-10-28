@@ -153,7 +153,7 @@ class List extends React.Component {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {interfaces &&
+                  {interfaces ? (
                     interfaces.map((d, index) => {
                       return (
                         <TableRow key={index}>
@@ -177,7 +177,10 @@ class List extends React.Component {
                           <TableCell align="left">{d.ref}</TableCell>
                         </TableRow>
                       );
-                    })}
+                    })
+                  ) : (
+                    <TableRow />
+                  )}
                 </TableBody>
               </Table>
             </div>
